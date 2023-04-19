@@ -49,6 +49,7 @@ public class Pellet : MonoBehaviour
         Destroy(particle, 2);
 
         Destroy(target.gameObject);
+        PlayerStats.Money += 10;
 
         Destroy(gameObject);
     }
