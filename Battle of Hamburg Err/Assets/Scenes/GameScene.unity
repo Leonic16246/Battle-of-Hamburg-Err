@@ -8973,7 +8973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2777450963066931737, guid: d3e8b98c7ea1af2409d450fded95b60a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseAnotherTurret
+      value: SelectAnotherTurret
       objectReference: {fileID: 0}
     - target: {fileID: 2777450963066931737, guid: d3e8b98c7ea1af2409d450fded95b60a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -14999,7 +14999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2777450963066931737, guid: d3e8b98c7ea1af2409d450fded95b60a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseStandardTurret
+      value: SelectStandardTurret
       objectReference: {fileID: 0}
     - target: {fileID: 2777450963066931737, guid: d3e8b98c7ea1af2409d450fded95b60a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
