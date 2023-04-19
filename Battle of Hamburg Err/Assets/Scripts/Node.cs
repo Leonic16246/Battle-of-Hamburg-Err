@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour
 {
 
-    public Color hoverColour;
+    public Color hoverColour, cantBuyColour;
 
     [Header("optional")]
     public GameObject turret;
@@ -64,7 +64,15 @@ public class Node : MonoBehaviour
             return;
         }
 
-        GetComponent<Renderer>().material.color = hoverColour;
+        if (buildManager.HasMoney())
+        {
+            GetComponent<Renderer>().material.color = hoverColour;
+        } else
+        {
+            GetComponent<Renderer>().material.color = cantBuyColour;
+        }
+
+        
 
     }
 

@@ -28,6 +28,11 @@ public class BuildManager : MonoBehaviour
         return turretToBuild != null;
     }
 
+    public bool HasMoney()
+    {
+        return PlayerStats.Money >= turretToBuild.cost;
+    }
+
     public void BuildTurretOn(Node node)
     {
         if (PlayerStats.Money < turretToBuild.cost)
