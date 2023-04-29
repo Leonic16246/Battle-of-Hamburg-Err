@@ -8,7 +8,7 @@ public class Turret : MonoBehaviour
     [Header("Attributes")]
     public float range = 10;
     public float fireRate = 1;
-    private float fireCooldown = 1;
+    private float fireCooldown = 0;
 
     [Header("Unity stuff")]  
     public string enemyTag = "Enemy";
@@ -68,7 +68,11 @@ public class Turret : MonoBehaviour
 
         if (fireCooldown <= 0)
         {
+
+            FindObjectOfType<AudioManager>().Play("ShootSFX");
+
             Shoot();
+
             fireCooldown = 1 / fireRate;
         }
         fireCooldown -= Time.deltaTime;
