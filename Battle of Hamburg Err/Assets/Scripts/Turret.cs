@@ -8,7 +8,7 @@ public class Turret : MonoBehaviour
     [Header("Attributes")]
     public float range = 10;
     public float fireRate = 1;
-    private float fireCooldown = 1;
+    private float fireCountdown = 1;
 
     [Header("Unity stuff")]  
     public string enemyTag = "Enemy";
@@ -23,7 +23,7 @@ public class Turret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
     void UpdateTarget()
@@ -66,12 +66,12 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(headRotation.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         headRotation.rotation = Quaternion.Euler(0, rotation.y, 0);
 
-        if (fireCooldown <= 0)
+        if (fireCountdown <= 0)
         {
             Shoot();
-            fireCooldown = 1 / fireRate;
+            fireCountdown = 1 / fireRate;
         }
-        fireCooldown -= Time.deltaTime;
+        fireCountdown -= Time.deltaTime;
 
     }
 

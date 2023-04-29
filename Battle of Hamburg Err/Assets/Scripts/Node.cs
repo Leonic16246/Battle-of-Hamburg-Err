@@ -25,11 +25,11 @@ public class Node : MonoBehaviour
     {
         if (turret != null)
         {
-            Debug.Log("cant build here");
+            Debug.Log("Can't build here!");
             return;
         }
         GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
-        turret = Instantiate(turretToBuild, transform.position, transform.rotation);
+        turret = (GameObject)Instantiate(turretToBuild, transform.position, transform.rotation);
     }
 
     void OnMouseEnter()
