@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Audio;
 using System;
 
 public class AudioManager : MonoBehaviour
@@ -50,5 +49,4 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Play();
     }
-
 }
