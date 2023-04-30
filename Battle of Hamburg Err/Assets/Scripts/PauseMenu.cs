@@ -4,12 +4,14 @@ public class PauseMenu : MonoBehaviour
 {
 
     public static bool gameIsPaused = false, inOtherMenu = false;
-    public GameObject pauseMenuUI, settingsMenuUI;
+    public GameObject pauseMenuUI, settingsMenuUI, currentMenuUI;
+
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !inOtherMenu)
+        if (Input.GetKeyDown(KeyCode.Escape) && currentMenuUI == pauseMenuUI)
         {
             if (gameIsPaused)
             {
@@ -18,6 +20,9 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
             }
+        } else if (Input.GetKeyDown(KeyCode.Escape) && currentMenuUI != pauseMenuUI)
+        {
+            Back(currentMenuUI);
         }
     }
 
@@ -50,6 +55,7 @@ public class PauseMenu : MonoBehaviour
     public void SettingsButton()
     {
         Debug.Log("option");
+        currentMenuUI = settingsMenuUI;
         pauseMenuUI.SetActive(false);
         settingsMenuUI.SetActive(true);
     }
@@ -61,11 +67,12 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    public void BackButton()
+    public void Back(GameObject menuUI) // where menuUI is current Menu to back out of
     {
         Debug.Log("back");
         pauseMenuUI.SetActive(true);
-        settingsMenuUI.SetActive(false);
+        menuUI.SetActive(false);
+        currentMenuUI = pauseMenuUI;
     }
 
 }

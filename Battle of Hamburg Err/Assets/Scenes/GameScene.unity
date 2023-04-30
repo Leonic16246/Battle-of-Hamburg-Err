@@ -15002,6 +15002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1363517937}
   settingsMenuUI: {fileID: 1027097467}
+  currentMenuUI: {fileID: 0}
 --- !u!114 &1494508064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16778,11 +16779,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1494508063}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: BackButton
-        m_Mode: 1
+        m_MethodName: Back
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1027097467}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
