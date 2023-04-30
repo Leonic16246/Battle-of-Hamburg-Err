@@ -20,6 +20,7 @@ public class BuildManager : MonoBehaviour
     
     public GameObject standardTurretPrefab;
     public GameObject anotherTurretPrefab;
+    public GameObject LaserBeamerPrefab;
 
     private GameObject turretToBuild;
     public GameObject GetTurretToBuild()
