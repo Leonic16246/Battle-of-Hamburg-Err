@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 [System.Serializable]
+
+// each sound can be found in AudioManager
 public class Sound
 {
 

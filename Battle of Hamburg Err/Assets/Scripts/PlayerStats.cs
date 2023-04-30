@@ -1,19 +1,22 @@
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour, IDataPersistence
 {
     public static int Money;
-    public int startMoney = 1000;
 
-    // Start is called before the first frame update
+    // placeholder
     void Start()
     {
-        Money = startMoney;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SaveData(GameData data)
     {
-        
+        data.moneyCount = Money;
+    }
+
+    public void LoadData(GameData data)
+    {
+        Money = data.moneyCount;    
     }
 }

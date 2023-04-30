@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
+        // have only one instance
         if (instance == null)
         {
             instance = this;
@@ -20,6 +21,7 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
+        // load up each audio source into an array
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -36,10 +38,10 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Play("GameBGM");
+        Play("GameBGM"); // play the ingame BGM
     }
 
-    public void Play(string name)
+    public void Play(string name) // public method to call an audio by its name to play
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
