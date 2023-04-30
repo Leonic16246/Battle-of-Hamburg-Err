@@ -14,20 +14,21 @@ public class WaveSpawner : MonoBehaviour
     public TextMeshProUGUI waveCountdownText, waveCountText;
     private int waveNumber = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    private bool canStart = false;
+
+    public void StartNextWave() // for wavestart button
     {
-        
+        canStart = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (waveStartTimer <= 0)
+        if (waveStartTimer <= 0 && canStart)
         {
             StartCoroutine(WaveStart());
             waveStartTimer = waveInterval;
-
+            canStart = false;
         }
         waveStartTimer -= Time.deltaTime;
 
