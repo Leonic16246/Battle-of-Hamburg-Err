@@ -22,7 +22,7 @@ public class Shop : MonoBehaviour
     public void SelectAnotherTurret()
     {
         Debug.Log("another turret purchased");
-        buildManager.SelectTurretToBuild(standardTurret);
+        buildManager.SelectTurretToBuild(anotherTurret);
     }
 
 }   

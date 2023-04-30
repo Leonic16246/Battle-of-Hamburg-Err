@@ -111,3 +111,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverColour: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 0}
+  cantBuyColour: {r: 1, g: 0.24056602, b: 0.3787563, a: 0}
+  turret: {fileID: 0}
