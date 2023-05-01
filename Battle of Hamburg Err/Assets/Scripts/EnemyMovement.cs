@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
 
     public float speed = 20;
+
     private Transform target;
     private int wavepointIndex = 0;
 
@@ -14,6 +15,8 @@ public class EnemyMovement : MonoBehaviour
     {
         target = WaypointsScript.waypoints[0];
     }
+
+
 
     // Update is called once per frame
     void Update()

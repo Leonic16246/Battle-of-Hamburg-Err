@@ -7,8 +7,15 @@ public class Turret : MonoBehaviour
 
     [Header("Attributes")]
     public float range = 10;
+
+    [Header("Use Bullets (default)")]
     public float fireRate = 1;
     private float fireCountdown = 1;
+
+    [Header("Use Laser")]
+    public bool useLaser = false;
+    public LineRenderer lineRenderer;
+    public ParticleSystem impactEffect;
 
     [Header("Unity stuff")]  
     public string enemyTag = "Enemy";
@@ -57,22 +64,57 @@ public class Turret : MonoBehaviour
     {
         if (target == null)
         {
+            if (useLaser)
+            {
+                if (lineRenderer.enabled)
+                {
+                    lineRenderer.enabled = false;
+                    impactEffect.Stop(); 
+                }
+            }
             return;
         }
 
         // math for turret head rotation
+        LockOnTarget();
+
+        if (useLaser)
+        {
+            Laser();
+        }
+        else
+        {
+            if (fireCountdown <= 0)
+            {
+                Shoot();
+                fireCountdown = 1 / fireRate;
+            }
+            fireCountdown -= Time.deltaTime;
+        }
+
+    }
+
+    void LockOnTarget()
+    {
         Vector3 direction = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         Vector3 rotation = Quaternion.Lerp(headRotation.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         headRotation.rotation = Quaternion.Euler(0, rotation.y, 0);
 
-        if (fireCountdown <= 0)
-        {
-            Shoot();
-            fireCountdown = 1 / fireRate;
-        }
-        fireCountdown -= Time.deltaTime;
+    }
 
+    void Laser()
+    {
+        if (!lineRenderer.enabled)
+        {
+            lineRenderer.enabled = true;
+            impactEffect.Play(); 
+        }
+
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, target.position);
+
+        impactEffect.transform.position = target.position;
     }
 
     void Shoot()

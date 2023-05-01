@@ -111,4 +111,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  impactParticle: {fileID: 4249837116220143093, guid: 25114225b0ea65d47ae0a2b78f9ce605, type: 3}
+  explosionRadius: 0
+  impactParticle: {fileID: 4249837116220143093, guid: f5252e8fb8617c34283c0b10f5a954bd, type: 3}
