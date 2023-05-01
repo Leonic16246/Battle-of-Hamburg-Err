@@ -6,7 +6,7 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false, inOtherMenu = false;
     public GameObject pauseMenuUI, settingsMenuUI, currentMenuUI;
 
-
+    public static float gameSpeed = 1;
 
     // Update is called once per frame
     void Update()
@@ -29,7 +29,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = gameSpeed;
         gameIsPaused = false;
     }
 
@@ -75,4 +75,8 @@ public class PauseMenu : MonoBehaviour
         currentMenuUI = pauseMenuUI;
     }
 
+    public void SetSpeed(float value)
+    {
+        gameSpeed = value;
+    }
 }
