@@ -15415,6 +15415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMoney: 1000
+  healthBar: {fileID: 486497145913620112}
 --- !u!1001 &1561727447
 PrefabInstance:
   m_ObjectHideFlags: 0
