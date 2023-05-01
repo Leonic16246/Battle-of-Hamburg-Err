@@ -8,6 +8,20 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
 
+    public static float gameSpeed = 1;
+
+    public static PauseMenu instance;
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("More than one pause menu");
+            return;
+        }
+
+        instance = this;
+    }
 
     // Update is called once per frame
     void Update()
@@ -27,7 +41,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = gameSpeed;
         gameIsPaused = false;
     }
 
@@ -52,6 +66,10 @@ public class PauseMenu : MonoBehaviour
     public void OptionButton()
     {
         Debug.Log("option");
+
+        // Open the options menu
+        pauseMenuUI.SetActive(false);
+        OptionsMenu.instance.Open();
     }
 
 
