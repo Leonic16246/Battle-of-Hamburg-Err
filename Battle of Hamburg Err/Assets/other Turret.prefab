@@ -166,7 +166,7 @@ MonoBehaviour:
   fireRate: 5
   enemyTag: Enemy
   headRotation: {fileID: 6659707996099561609}
-  turnSpeed: 10
+  turnSpeed: 20
   pelletprefab: {fileID: 7857154360620574214, guid: 7d1223c13ec85f740af358728f925153, type: 3}
   firePoint: {fileID: 267039358}
 --- !u!1 &925214976531821710
