@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -33,13 +35,10 @@ public class EnemyMovement : MonoBehaviour
             target = WaypointsScript.waypoints[wavepointIndex]; 
             
 
-        } 
-        else
+        } else
         {
-            // Destroy enemy and reduce player health by 5% when enemy has reached the end.
             Destroy(gameObject);
-            PlayerStats.ReducePlayerHealth(0.05f);
-
+            
         }
         
     }
