@@ -1,17 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
 
-    public static bool gameIsPaused = false, inOtherMenu = false;
-    public GameObject pauseMenuUI, settingsMenuUI, currentMenuUI;
+    public static bool gameIsPaused = false;
+    public GameObject pauseMenuUI;
 
+    public static float gameSpeed = 1;
 
+    public static PauseMenu instance;
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("More than one pause menu");
+            return;
+        }
+
+        instance = this;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && currentMenuUI == pauseMenuUI)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameIsPaused)
             {
@@ -20,16 +35,13 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
             }
-        } else if (Input.GetKeyDown(KeyCode.Escape) && currentMenuUI != pauseMenuUI)
-        {
-            Back(currentMenuUI);
         }
     }
 
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = gameSpeed;
         gameIsPaused = false;
     }
 
@@ -51,28 +63,19 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("load");
     }
 
-
-    public void SettingsButton()
+    public void OptionButton()
     {
         Debug.Log("option");
-        currentMenuUI = settingsMenuUI;
+
+        // Open the options menu
         pauseMenuUI.SetActive(false);
-        settingsMenuUI.SetActive(true);
+        OptionsMenu.instance.Open();
     }
 
 
     public void QuitButton()
     {
         Debug.Log("quit");
-    }
-
-
-    public void Back(GameObject menuUI) // where menuUI is current Menu to back out of
-    {
-        Debug.Log("back");
-        pauseMenuUI.SetActive(true);
-        menuUI.SetActive(false);
-        currentMenuUI = pauseMenuUI;
     }
 
 }
