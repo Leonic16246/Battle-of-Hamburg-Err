@@ -1,14 +1,8 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using System;
 
 public class OptionsMenu : MonoBehaviour
 {
     public GameObject optionsMenuUI;
-
-    public TextMeshProUGUI speedText;
-    public Slider speedSlider;
 
     public static OptionsMenu instance;
 
@@ -41,17 +35,17 @@ public class OptionsMenu : MonoBehaviour
         optionsMenuUI.SetActive(true);
     }
 
-    // Updates the speed value displayed next to the slider.
-    public void UpdateSpeedText()
+    // Updates the game speed value in the PauseMenu instance on speed button click
+    public void UpdateSpeed(float amount)
     {
-        speedText.text = Math.Round(speedSlider.value, 2).ToString()+"x";
+        PauseMenu.gameSpeed = amount; 
+
     }
 
     // Go back to the main menu on button click
     public void Close()
     {
         optionsMenuUI.SetActive(false);
-        PauseMenu.gameSpeed = (float)Math.Round(speedSlider.value, 2); // Updates the game speed value in the PauseMenu instance.
         PauseMenu.instance.Pause();
     }
 }
