@@ -1041,3 +1041,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca78416d9b6ae40468f742fe974e22ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuUI: {fileID: 0}
+  themeMenuUI: {fileID: 0}

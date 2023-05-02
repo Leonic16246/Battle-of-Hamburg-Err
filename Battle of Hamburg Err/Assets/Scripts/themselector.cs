@@ -1,3 +1,6 @@
+
+
+//have to drag the prefab into the my prefab field as component but i cant find it....
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +8,15 @@ using UnityEngine.SceneManagement;
 
 public class themselector : MonoBehaviour
 {
+    public GameObject Amap;
+    public GameObject Environment;
+
     public void SelectAmerica()
     {
-        
+        //changes to the GameScene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        GameObject prefabInstance = Instantiate(Resources.Load<GameObject>("AMap")) as GameObject;
+
+        Instantiate(Amap, new Vector3(0, 0, 0), Quaternion.identity;
 
     }
 
@@ -17,7 +24,7 @@ public class themselector : MonoBehaviour
     {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        GameObject prefabInstance = Instantiate(Resources.Load<GameObject>("Environment")) as GameObject;
+        Instantiate(Environment, new Vector3(0, 0, 0), Quaternion.identity;
 
     }
 }
