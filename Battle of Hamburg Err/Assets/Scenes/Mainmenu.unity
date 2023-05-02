@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -567,7 +567,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7969090190822104122, guid: ba82812d8174d2448a91a3208d3ecd1c, type: 3}
   m_PrefabInstance: {fileID: 7969090190459710109}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &375846568
+--- !u!114 &375846571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -576,9 +576,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 375846566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5062ffcbe5b54f46894987fa9469d8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 96682e22d3425774e9223521a96a1ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Amap: {fileID: 6198165897424699810, guid: 781d15318c3d53b4098b4cde681c41fc, type: 3}
+  Environment: {fileID: 6198165897424699810, guid: 781d15318c3d53b4098b4cde681c41fc, type: 3}
 --- !u!1 &481981514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,14 +1658,14 @@ PrefabInstance:
     - target: {fileID: 7969090189865700200, guid: ba82812d8174d2448a91a3208d3ecd1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 375846568}
+      objectReference: {fileID: 375846571}
     - target: {fileID: 7969090189865700200, guid: ba82812d8174d2448a91a3208d3ecd1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SelectAmerica
       objectReference: {fileID: 0}
     - target: {fileID: 7969090189865700200, guid: ba82812d8174d2448a91a3208d3ecd1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: themselector, Assembly-CSharp
+      value: ThemeSelecter, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7969090189974768402, guid: ba82812d8174d2448a91a3208d3ecd1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1676,14 +1678,14 @@ PrefabInstance:
     - target: {fileID: 7969090190032002075, guid: ba82812d8174d2448a91a3208d3ecd1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 375846568}
+      objectReference: {fileID: 375846571}
     - target: {fileID: 7969090190032002075, guid: ba82812d8174d2448a91a3208d3ecd1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SelectDefault
       objectReference: {fileID: 0}
     - target: {fileID: 7969090190032002075, guid: ba82812d8174d2448a91a3208d3ecd1c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: themselector, Assembly-CSharp
+      value: ThemeSelecter, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7969090190822104116, guid: ba82812d8174d2448a91a3208d3ecd1c, type: 3}
       propertyPath: m_Enabled
@@ -1789,6 +1791,5 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7969090190822104117, guid: ba82812d8174d2448a91a3208d3ecd1c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba82812d8174d2448a91a3208d3ecd1c, type: 3}
