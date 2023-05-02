@@ -13,11 +13,12 @@ public class WaveSpawner : MonoBehaviour
 
     public TextMeshProUGUI waveCountdownText, waveCountText;
     private int waveNumber = 0;
+    ThemeSelecter themes;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        spawnPoint = GameObject.Find("Waypoint (-1)").transform;
     }
 
     // Update is called once per frame
