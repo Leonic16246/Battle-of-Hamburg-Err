@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956fea45f1ef28248a7980174f7026a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
-  fireRate: 1
+  range: 40
+  fireRate: 0.25
   useLaser: 0
   lineRenderer: {fileID: 0}
   impactEffect: {fileID: 0}
