@@ -1,14 +1,48 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using TMPro;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class SettingsMenu : MonoBehaviour
 {
 
+    // for audio
     public AudioMixer audioMixer;
     public bool masterMute = false, musicMute = false, sfxMute = false;
     public float masterFloat = 0, musicFloat = 0, sfxFloat = 0;
     public TextMeshProUGUI masterText, musicText, sfxText;
+
+    // for resolutions
+
+    Resolution[] resolutions;
+    public TMPro.TMP_Dropdown resolutionDropdown;
+
+    void Start()
+    {
+        resolutions = Screen.resolutions;
+
+        resolutionDropdown.ClearOptions();
+
+        // convert array of resolution types to a list of strings
+        List<string> options = new List<string>();
+
+        int currentResIndex = 0;
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + "x" + resolutions[i].height + "@" + resolutions[i].refreshRate + "hz";
+            options.Add(option);
+
+            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            {
+                currentResIndex = i;
+            }
+        }
+
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResIndex;
+        resolutionDropdown.RefreshShownValue();
+    }
 
     public void SetMaster(float volume)
     {
@@ -78,4 +112,16 @@ public class SettingsMenu : MonoBehaviour
             sfxText.color = Color.black;
         }
     }
+
+    public void SetFullScreen(bool isFullScreen)
+    {
+        Screen.fullScreen = isFullScreen;
+    }
+
+    public void SetResolution(int resIndex)
+    {
+        Resolution res = resolutions[resIndex];
+        Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+    }
+
 }
