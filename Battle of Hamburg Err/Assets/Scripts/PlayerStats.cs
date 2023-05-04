@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
 
     public static int playerXP;
     public static int playerLevel;
+    private static int xpUntilNextLevel;
 
     public Image healthBar;
     public static float health = 1;
@@ -18,6 +19,7 @@ public class PlayerStats : MonoBehaviour
         Money = startMoney;
         playerXP = 0;
         playerLevel = 1;
+        xpUntilNextLevel = 750;
     }
 
     // Update is called once per frame
@@ -29,16 +31,27 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    // Called when enemy reaches the end of their path, reducing the player's health.
     public static void ReducePlayerHealth(float amount)
     {
         health -= amount;
     }
 
+    // Called on enemy defeat, increasing the player's XP.
     public static void GainXP(int amount)
     {
         playerXP += amount;
 
-        // TODO: Increment player level when playerXP reaches or exceeds a certain amount.
+        // Increment player level when playerXP reaches or exceeds a certain amount.
         Debug.Log("XP: "+playerXP);
+        if (playerXP >= xpUntilNextLevel)
+        {
+            playerLevel++;
+            Debug.Log("Level Up!");
+            Debug.Log("Current Level: "+playerLevel);
+
+            xpUntilNextLevel = Mathf.RoundToInt((float)1.2 * xpUntilNextLevel);
+            Debug.Log("XP until next level: " + xpUntilNextLevel);
+        }
     }
 }
