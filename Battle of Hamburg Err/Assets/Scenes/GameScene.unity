@@ -6641,7 +6641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5456471247934250669, guid: 2ff46b86bd5fe9c44af0e2f3f006058c, type: 3}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1122621558}
   waveInterval: 5
   waveNumberText: {fileID: 1631570993}
 --- !u!4 &1561264991
