@@ -30,16 +30,19 @@ public class ThemeSelecter : MonoBehaviour
 
     public void SelectAmerica()
     {
-        //changes to the GameScene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        mapToLoad = Amap;
+        SceneManager.LoadScene(1);
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            StartCoroutine("waitForSceneLoad", 1);
+        }
 
-        Instantiate(Amap, new Vector3(0, 0, 0), Quaternion.identity);
 
     }
 
     public void SelectDefault()
     {   
-        mapToLoad = Amap;
+        mapToLoad = defaultMap;
         SceneManager.LoadScene(1);
         if (SceneManager.GetActiveScene().buildIndex != 1)
         {
