@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Pellet : MonoBehaviour
@@ -5,6 +7,7 @@ public class Pellet : MonoBehaviour
 
     private Transform target;
     public float speed = 50;
+    public float explosionRadius = 0;
     public GameObject impactParticle;
 
     public void seek(Transform _target)
@@ -16,7 +19,7 @@ public class Pellet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -38,6 +41,7 @@ public class Pellet : MonoBehaviour
         }
 
         transform.Translate(direction.normalized * distanceThisFrame, Space.World);
+        transform.LookAt(target);
 
     }
 
@@ -46,10 +50,39 @@ public class Pellet : MonoBehaviour
         GameObject particle = (GameObject)Instantiate(impactParticle, transform.position, transform.rotation);
         Destroy(particle, 2);
 
-        Destroy(target.gameObject);
-        PlayerStats.Money += 10;
+        if (explosionRadius > 0)
+        {
+            Explode();
+        }
+        else
+        {
+            Damage(target);
+        }
 
+        Destroy(target.gameObject);
         Destroy(gameObject);
     }
 
+    void Explode()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.tag == "Enemy")
+            {
+                Damage(collider.transform);
+            }
+        }
+    }
+
+    void Damage(Transform enemy)
+    {
+        Destroy(enemy.gameObject);
+    }
+
+    void onDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
+    }
 }

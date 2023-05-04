@@ -7,10 +7,17 @@ public class Turret : MonoBehaviour
 
     [Header("Attributes")]
     public float range = 10;
-    public float fireRate = 1;
-    private float fireCooldown = 0;
 
-    [Header("Unity stuff")]  
+    [Header("Use Bullets (default)")]
+    public float fireRate = 1;
+    private float fireCountdown = 1;
+
+    [Header("Use Laser")]
+    public bool useLaser = false;
+    public LineRenderer lineRenderer;
+    public ParticleSystem impactEffect;
+
+    [Header("Unity stuff")]
     public string enemyTag = "Enemy";
 
     public Transform headRotation;
@@ -23,7 +30,7 @@ public class Turret : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
     void UpdateTarget()
@@ -45,7 +52,8 @@ public class Turret : MonoBehaviour
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
-        } else
+        }
+        else
         {
             target = null;
         }
@@ -57,26 +65,58 @@ public class Turret : MonoBehaviour
     {
         if (target == null)
         {
+            if (useLaser)
+            {
+                if (lineRenderer.enabled)
+                {
+                    lineRenderer.enabled = false;
+                    impactEffect.Stop();
+                }
+            }
             return;
         }
 
         // math for turret head rotation
+        LockOnTarget();
+
+        if (useLaser)
+        {
+            Laser();
+        }
+        else
+        {
+            if (fireCountdown <= 0)
+            {
+                FindObjectOfType<AudioManager>().Play("ShootSFX");
+                Shoot();
+                fireCountdown = 1 / fireRate;
+            }
+            fireCountdown -= Time.deltaTime;
+        }
+
+    }
+
+    void LockOnTarget()
+    {
         Vector3 direction = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         Vector3 rotation = Quaternion.Lerp(headRotation.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         headRotation.rotation = Quaternion.Euler(0, rotation.y, 0);
 
-        if (fireCooldown <= 0)
+    }
+
+    void Laser()
+    {
+        if (!lineRenderer.enabled)
         {
-
-            FindObjectOfType<AudioManager>().Play("ShootSFX");
-
-            Shoot();
-
-            fireCooldown = 1 / fireRate;
+            lineRenderer.enabled = true;
+            impactEffect.Play();
         }
-        fireCooldown -= Time.deltaTime;
 
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, target.position);
+
+        impactEffect.transform.position = target.position;
     }
 
     void Shoot()
