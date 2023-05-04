@@ -79,6 +79,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   fireRate: 1
+  useLaser: 0
+  lineRenderer: {fileID: 0}
+  impactEffect: {fileID: 0}
   enemyTag: Enemy
   headRotation: {fileID: 88092017930639270}
   turnSpeed: 10
