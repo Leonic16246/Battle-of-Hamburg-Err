@@ -23,7 +23,7 @@ public class ThemeSelecter : MonoBehaviour
 
     public GameObject Amap;
     public GameObject defaultMap;
-    public GameObject mapGO;
+    GameObject mapToLoad;
 
     string sceneName = "GameScene";
 
@@ -39,28 +39,32 @@ public class ThemeSelecter : MonoBehaviour
 
     public void SelectDefault()
     {   
-        
-
-        //SceneManager.MoveGameObjectToScene(Environment, SceneManager.GetSceneByName(sceneName));
+        mapToLoad = Amap;
         SceneManager.LoadScene(1);
-
-        mapGO = Instantiate(Amap, new Vector3(0, 0, 0), Quaternion.identity);
-        DontDestroyOnLoad(mapGO);
-        //SceneManager.MoveGameObjectToScene(mapGO, SceneManager.GetSceneByName(sceneName));    
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            StartCoroutine("waitForSceneLoad", 1);
+        }
+ 
         
     }
-    IEnumerator LoadYourAsyncScene()
+    IEnumerator waitForSceneLoad(int sceneNumber)
     {
 
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 
-        while (!asyncLoad.isDone)
+        while (SceneManager.GetActiveScene().buildIndex != sceneNumber)
         {
             yield return null;
         }
 
-        
+        if (SceneManager.GetActiveScene().buildIndex == sceneNumber)
+        {
+            Debug.Log(SceneManager.GetActiveScene().buildIndex);
+            Instantiate(mapToLoad, mapToLoad.transform.position, mapToLoad.transform.rotation);
+            
+        }
 
     }
 }

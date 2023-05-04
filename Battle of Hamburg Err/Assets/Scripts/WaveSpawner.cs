@@ -18,9 +18,15 @@ public class WaveSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnPoint = GameObject.Find("Waypoint (-1)").transform;
+        StartCoroutine(passiveMe(1));
     }
-
+    
+ 
+    IEnumerator passiveMe(int secs)
+ {
+     yield return new WaitForSeconds(secs);
+     spawnPoint = GameObject.Find("Waypoint (-1)").transform;
+ }
     // Update is called once per frame
     void Update()
     {

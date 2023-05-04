@@ -14,7 +14,6 @@ public class BuildManager : MonoBehaviour
             Debug.LogError("more than one build manager");
             return;
         }
-
         instance = this;
     }
     
