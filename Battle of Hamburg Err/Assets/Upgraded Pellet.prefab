@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6578205564179262918}
   - component: {fileID: 1206214869342233217}
   m_Layer: 0
-  m_Name: Pellet
+  m_Name: Upgraded Pellet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c297182a7cf621140ac283b7567de5df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc333d5097393e4e822d8eb04c521a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 75
   explosionRadius: 0
   impactParticle: {fileID: 4249837116220143093, guid: f5252e8fb8617c34283c0b10f5a954bd, type: 3}
+  damage: 50

@@ -8,8 +8,12 @@ public class Node : MonoBehaviour
 
     public Color hoverColour, cantBuyColour;
 
-    [Header("optional")]
+    [HideInInspector]
     public GameObject turret;
+    [HideInInspector]
+    public TurretBlueprint turretBlueprint;
+    [HideInInspector]
+    public bool isUpgraded = false; 
 
     private Renderer rendr;
     private Color startColor;
@@ -37,19 +41,68 @@ public class Node : MonoBehaviour
             return;
         }
         
+
+        if (turret != null)
+        {
+            buildManager.SelectNode(this);
+            return;
+        }
+
         if (!buildManager.CanBuild())
         {
             return;
         }
 
-        if (turret != null)
+        BuildTurret(buildManager.GetTurretToBuild());
+
+    }
+
+    void BuildTurret (TurretBlueprint blueprint)
+    {
+        if (PlayerStats.Money < blueprint.cost)
         {
-            Debug.Log("cant build here");
+            Debug.Log("Not enough money!");
             return;
         }
-        
-        buildManager.BuildTurretOn(this);
 
+        PlayerStats.Money -= blueprint.cost;
+
+        GameObject _turret = Instantiate(blueprint.prefab, GetPosition(), Quaternion.identity);
+        turret = _turret;
+
+        turretBlueprint = blueprint; 
+
+        Debug.Log("Turret Built, Money left: " + PlayerStats.Money);
+    }
+
+    public void UpgradeTurret()
+    {
+        if (PlayerStats.Money < turretBlueprint.upgradeCost)
+        {
+            Debug.Log("Not enough money to Upgrade!");
+            return;
+        }
+
+        PlayerStats.Money -= turretBlueprint.upgradeCost;
+
+        //get rid of old turret
+        Destroy(turret);
+
+        //building new turret
+        GameObject _turret = Instantiate(turretBlueprint.upgradedPrefab, GetPosition(), Quaternion.identity);
+        turret = _turret;
+
+        isUpgraded = true; 
+
+        Debug.Log("Turret Upgraded, Money left: " + PlayerStats.Money);
+    }
+
+    public void SellTurret()
+    {
+        PlayerStats.Money += turretBlueprint.GetSellAmount();
+        Destroy(turret);
+        isUpgraded = false; 
+        turretBlueprint = null; 
     }
 
     void OnMouseEnter()
@@ -71,9 +124,6 @@ public class Node : MonoBehaviour
         {
             GetComponent<Renderer>().material.color = cantBuyColour;
         }
-
-        
-
     }
 
     void OnMouseExit()
