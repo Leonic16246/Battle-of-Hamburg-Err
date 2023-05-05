@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour
     public float range = 10;
 
     [Header("Use Bullets (default)")]
+    public GameObject pelletPrefab; 
     public float fireRate = 1;
     private float fireCountdown = 1;
 
@@ -18,6 +19,7 @@ public class Turret : MonoBehaviour
     public int damageOverTime = 30; 
     public LineRenderer lineRenderer;
     public ParticleSystem impactEffect;
+    public float slowAmount = .5f;
 
     [Header("Unity stuff")]
     public string enemyTag = "Enemy";
@@ -112,6 +114,7 @@ public class Turret : MonoBehaviour
     {
 
         targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+        targetEnemy.Slow(slowAmount);
 
         if (!lineRenderer.enabled)
         {

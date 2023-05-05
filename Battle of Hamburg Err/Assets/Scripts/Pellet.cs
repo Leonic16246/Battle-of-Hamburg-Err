@@ -10,16 +10,11 @@ public class Pellet : MonoBehaviour
     public float explosionRadius = 0;
     public GameObject impactParticle;
 
+    public int damage = 50; 
+
     public void seek(Transform _target)
     {
         target = _target;
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
     }
 
     // Update is called once per frame
@@ -47,8 +42,8 @@ public class Pellet : MonoBehaviour
 
     void HitTarget()
     {
-        GameObject particle = (GameObject)Instantiate(impactParticle, transform.position, transform.rotation);
-        Destroy(particle, 2);
+        GameObject effectIns = (GameObject)Instantiate(impactParticle, transform.position, transform.rotation);
+        Destroy(effectIns, 2);
 
         if (explosionRadius > 0)
         {
@@ -59,7 +54,6 @@ public class Pellet : MonoBehaviour
             Damage(target);
         }
 
-        Destroy(target.gameObject);
         Destroy(gameObject);
     }
 
@@ -77,7 +71,12 @@ public class Pellet : MonoBehaviour
 
     void Damage(Transform enemy)
     {
-        Destroy(enemy.gameObject);
+        Enemy e = enemy.GetComponent<Enemy>();
+
+        if (e != null)
+        {
+            e.TakeDamage(damage); 
+        }
     }
 
     void onDrawGizmosSelected()

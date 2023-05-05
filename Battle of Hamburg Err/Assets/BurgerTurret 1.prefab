@@ -47,10 +47,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 25
+  pelletPrefab: {fileID: 7857154360620574214, guid: 7d1223c13ec85f740af358728f925153, type: 3}
   fireRate: 1
   useLaser: 0
+  damageOverTime: 30
   lineRenderer: {fileID: 0}
   impactEffect: {fileID: 0}
+  slowAmount: 0.5
   enemyTag: Enemy
   headRotation: {fileID: 1817698050942045435}
   turnSpeed: 10

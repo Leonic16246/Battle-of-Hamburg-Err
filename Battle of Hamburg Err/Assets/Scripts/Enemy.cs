@@ -5,12 +5,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float startSpeed = 10f;
-
+    
     [HideInInspector]
     public float speed;
 
     public float startHealth = 100;
     private float health;
+    public int worth = 50; 
 
     public GameObject deathEffect;
 
@@ -40,6 +41,8 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         isDead = true;
+
+        PlayerStats.Money += worth; 
 
         GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);
