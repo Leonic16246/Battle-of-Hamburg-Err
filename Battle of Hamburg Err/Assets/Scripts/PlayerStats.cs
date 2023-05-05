@@ -74,6 +74,8 @@ public class PlayerStats : MonoBehaviour
     // Set the "level up" message to be visible for a number of seconds.
     IEnumerator sendNotification(int time)
     {
+        levelUpText.text = "Level up!\n" +
+            "Current level: "+playerLevel;
         levelUpText.gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
         levelUpText.gameObject.SetActive(false);
