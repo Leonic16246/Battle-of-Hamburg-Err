@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
         {
             // Destroy enemy and reduce player health by 5% when enemy has reached the end.
             Destroy(gameObject);
-            PlayerStats.ReducePlayerHealth(0.05f);
+            PlayerStats.instance.ReducePlayerHealth(0.05f);
         }
         
     }

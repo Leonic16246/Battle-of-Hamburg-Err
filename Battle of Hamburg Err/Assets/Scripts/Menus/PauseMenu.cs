@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -64,6 +66,8 @@ public class PauseMenu : MonoBehaviour
     public void QuitButton()
     {
         Debug.Log("quit");
+        
+        SceneManager.LoadScene(0);
     }
 
 
@@ -79,4 +83,5 @@ public class PauseMenu : MonoBehaviour
     {
         gameSpeed = value;
     }
+
 }
