@@ -44,6 +44,7 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             // Destroy enemy and reduce player health by 5% when enemy has reached the end.
+            WaveSpawner.EnemiesAlive--; 
             Destroy(gameObject);
             PlayerStats.ReducePlayerHealth(0.05f);
         }
