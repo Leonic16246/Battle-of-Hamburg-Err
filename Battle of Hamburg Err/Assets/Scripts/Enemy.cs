@@ -48,5 +48,6 @@ public class Enemy : MonoBehaviour
         Destroy(effect, 5f);
 
         Destroy(gameObject);
+        PlayerStats.instance.GainXP(10); // Gain 10 XP on enemy defeat.
     }
 }
