@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 9090699648823614585}
   - component: {fileID: 1902007016725731459}
   - component: {fileID: -2216699529562810519}
+  - component: {fileID: 3087490879921384173}
   m_Layer: 0
   m_Name: Strongest Enemy
   m_TagString: Enemy
@@ -154,6 +155,20 @@ Halo:
     serializedVersion: 2
     rgba: 4279173375
   m_Size: 5
+--- !u!136 &3087490879921384173
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143197602377253693}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5446576366090631366
 GameObject:
   m_ObjectHideFlags: 0
