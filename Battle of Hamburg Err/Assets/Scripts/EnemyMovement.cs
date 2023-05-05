@@ -18,7 +18,6 @@ public class EnemyMovement : MonoBehaviour
         target = WaypointsScript.waypoints[0];
     }
 
-
     // Update is called once per frame
     void Update()
     {
