@@ -3,7 +3,11 @@ guid: 02c620d06f38ef748ace579473791c39
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - pauseMenuUI: {instanceID: 0}
+  - settingsMenuUI: {instanceID: 0}
+  - currentMenuUI: {instanceID: 0}
+  - sceneInfo: {fileID: 11400000, guid: 2ea5f957ec2dc4c40a1966f5f075706a, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

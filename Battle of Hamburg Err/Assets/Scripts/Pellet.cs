@@ -48,7 +48,7 @@ public class Pellet : MonoBehaviour
 
         Destroy(target.gameObject);
         PlayerStats.Money += 10;
-        PlayerStats.GainXP(10); // Gain 10 XP on enemy defeat.
+        PlayerStats.instance.GainXP(10); // Gain 10 XP on enemy defeat.
 
         Destroy(gameObject);
     }
