@@ -101,6 +101,7 @@ public class Node : MonoBehaviour
     {
         PlayerStats.Money += turretBlueprint.GetSellAmount();
         Destroy(turret);
+        isUpgraded = false; 
         turretBlueprint = null; 
     }
 
@@ -123,9 +124,6 @@ public class Node : MonoBehaviour
         {
             GetComponent<Renderer>().material.color = cantBuyColour;
         }
-
-        
-
     }
 
     void OnMouseExit()
