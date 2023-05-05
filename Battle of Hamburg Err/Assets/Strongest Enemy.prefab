@@ -87,10 +87,10 @@ GameObject:
   - component: {fileID: 8900199957411801395}
   - component: {fileID: 9090699648823614585}
   - component: {fileID: 1902007016725731459}
-  - component: {fileID: 6235829438990252872}
-  - component: {fileID: 3974230332221657142}
+  - component: {fileID: -2216699529562810519}
+  - component: {fileID: 3087490879921384173}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Strongest Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,7 +105,7 @@ Transform:
   m_GameObject: {fileID: 5143197602377253693}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -47.6977, y: 18.796207, z: -18.064444}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3909606550677723386}
@@ -125,9 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c25016570da064449f80e44bace84cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 10
+  startSpeed: 20
   speed: 0
-  startHealth: 100
+  startHealth: 300
   worth: 50
   deathEffect: {fileID: 4249837116220143093, guid: f5252e8fb8617c34283c0b10f5a954bd, type: 3}
   healthBar: {fileID: 1662219792391856529}
@@ -143,20 +143,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ce765e3a0de514fb652bdc52f9f651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &6235829438990252872
-BoxCollider:
+--- !u!122 &-2216699529562810519
+Halo:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5143197602377253693}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &3974230332221657142
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4279173375
+  m_Size: 5
+--- !u!136 &3087490879921384173
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

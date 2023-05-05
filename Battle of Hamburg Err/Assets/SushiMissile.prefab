@@ -161,8 +161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 40
-  pelletPrefab: {fileID: 8575005285802951875, guid: 52ecac0e4018d1e48b9d613bfb43f801, type: 3}
-  fireRate: 0.25
+  pelletPrefab: {fileID: 7857154360620574214, guid: d9bd0bf9e5406174dba3082c63d6ab4e, type: 3}
+  fireRate: 1
   useLaser: 0
   damageOverTime: 30
   lineRenderer: {fileID: 0}

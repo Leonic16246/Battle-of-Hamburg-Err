@@ -4,8 +4,8 @@ using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
-
-    public Transform enemyPrefab;
+    public static int EnemiesAlive = 0;
+    public Wave[] waves;
     public Transform spawnPoint;
 
     public float waveInterval = 5;
@@ -30,10 +30,17 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(EnemiesAlive > 0)
+        {
+            return; 
+        }
+
         if (waveStartTimer <= 0)
         {
             StartCoroutine(WaveStart());
             waveStartTimer = waveInterval;
+            return;
 
         }
         waveStartTimer -= Time.deltaTime;
@@ -45,19 +52,23 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator WaveStart()
     {
-        waveNumber++;
         waveCountText.text = "Wave: " + waveNumber.ToString();
         Debug.Log("wave "+ waveNumber + ": start");
-        for (int i = 0; i < waveNumber; i++)
+
+        Wave wave = waves[waveNumber];
+
+        for (int i = 0; i < wave.count; i++)
         {
-            spawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            spawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f/ wave.rate);
         }
+        waveNumber++;
     }
 
-    void spawnEnemy()
+    void spawnEnemy(GameObject enemy)
     {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        EnemiesAlive++; 
     }
 
 }

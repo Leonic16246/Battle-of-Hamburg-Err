@@ -18,7 +18,6 @@ public class EnemyMovement : MonoBehaviour
         target = WaypointsScript.waypoints[0];
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +44,7 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             // Destroy enemy and reduce player health by 5% when enemy has reached the end.
+            WaveSpawner.EnemiesAlive--; 
             Destroy(gameObject);
             PlayerStats.instance.ReducePlayerHealth(0.05f);
         }
