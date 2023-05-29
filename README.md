@@ -3,7 +3,7 @@
 Project for Software Development Practice.
 Battle of Hamburg Err is a Tower Defense game where you defend your base against enemies by placing towers and upgrading them.
 
-Pick your theme of either America or Japan and place towers including a burger shooter, sushi missile launcher, or donut laser and defend your base against hungry humans that get increasingly tankier and faster as the waves go by! 
+Pick your theme of either America, Japan, or the Desert and place towers including a burger shooter, sushi missile launcher, or donut laser and defend your base against hungry humans that get increasingly tankier and faster as the waves go by! 
 
 ## Table of Contents
   - [Key Features](#key-features)
