@@ -1,29 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
 public class TurretBlueprintTest
 {
-    [Test]
-    public void TurretUpgrade_PrefabAndCostSet()
+    private TurretBlueprint turretBlueprint;
+
+    [SetUp]
+    public void SetUp()
     {
-        // Arrange
-        var turretBlueprint = new TurretBlueprint
+        turretBlueprint = new TurretBlueprint
         {
             prefab = new GameObject(),
-            cost = 100,
+            cost = 150,
             upgradedPrefab = new GameObject(),
             upgradeCost = 200
         };
+    }
 
-        // Act
-        var upgradedPrefab = turretBlueprint.upgradedPrefab;
-        var upgradeCost = turretBlueprint.upgradeCost;
+ 
 
-        // Assert
-        Assert.IsNotNull(upgradedPrefab);
-        Assert.Greater(upgradeCost, turretBlueprint.cost);
+    [Test]
+    public void GetSellAmount_ReturnsHalfCost()
+    {
+        int sellAmount = turretBlueprint.GetSellAmount();
+        Assert.AreEqual(75, sellAmount);
     }
 }
+    
