@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Play("NewBGM"); //plays background music
+        Play("BetterBGM"); //plays background music
     }
 
     public void Play(string name)

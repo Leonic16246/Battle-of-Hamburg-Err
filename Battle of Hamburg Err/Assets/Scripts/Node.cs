@@ -40,7 +40,6 @@ public class Node : MonoBehaviour
         {
             return;
         }
-        
 
         if (turret != null)
         {
@@ -131,9 +130,4 @@ public class Node : MonoBehaviour
         rendr.material.color = startColor;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

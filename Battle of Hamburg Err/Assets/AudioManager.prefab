@@ -66,3 +66,10 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: BetterBGM
+    clip: {fileID: 8300000, guid: 42d5eb35a6a91eb4ea4e973596726b4a, type: 3}
+    mixGroup: {fileID: 5404419610293491865, guid: 9a08c6e2860fc9048bc1f7c0f95c3c03, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
