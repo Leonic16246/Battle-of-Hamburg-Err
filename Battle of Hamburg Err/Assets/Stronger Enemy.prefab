@@ -88,9 +88,10 @@ GameObject:
   - component: {fileID: 1189065574790359973}
   - component: {fileID: 3716955709300515812}
   - component: {fileID: 6265628467825660230}
+  - component: {fileID: 7952832682560219918}
   m_Layer: 0
-  m_Name: stronger enemy
-  m_TagString: Untagged
+  m_Name: Stronger Enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,6 +145,18 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7952832682560219918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002897300849307935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ce765e3a0de514fb652bdc52f9f651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6809763143309373954
 GameObject:
   m_ObjectHideFlags: 0
