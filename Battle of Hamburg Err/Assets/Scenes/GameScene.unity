@@ -6867,7 +6867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemy: {fileID: 2002897300849307935, guid: e8b02a3f614ace644941dada37826723, type: 3}
+  - enemy: {fileID: 3699323638194706410, guid: 4ac2c9cbffc22764793d667111b9473a, type: 3}
     count: 1
     rate: 2
   - enemy: {fileID: 5143197602377253693, guid: a2baa9025b553b849be8bd4197dde18a, type: 3}
