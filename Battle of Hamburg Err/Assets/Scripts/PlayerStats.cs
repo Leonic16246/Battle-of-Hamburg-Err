@@ -15,6 +15,8 @@ public class PlayerStats : MonoBehaviour
     public Image healthBar;
     public static float health = 1;
 
+    public GameObject gameOverScreen;
+
     public static PlayerStats instance;
 
     void Awake()
@@ -37,17 +39,16 @@ public class PlayerStats : MonoBehaviour
         xpUntilNextLevel = 750;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Called when enemy reaches the end of their path, reducing the player's health.
     public void ReducePlayerHealth(float amount)
     {
         health -= amount;
         healthBar.fillAmount = health;
+        if (health <= 0) // Game over when health reaches 0.
+        {
+            Time.timeScale = 0;
+            gameOverScreen.SetActive(true);
+        }
     }
 
     // Called on enemy defeat, increasing the player's XP.
