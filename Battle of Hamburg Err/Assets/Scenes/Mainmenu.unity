@@ -3316,41 +3316,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5888968241238160559, guid: e0915b8cc792cbe4aa88d55403eba2bd, type: 3}
-      propertyPath: sounds.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5888968241238160559, guid: e0915b8cc792cbe4aa88d55403eba2bd, type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: GameBGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 5888968241238160559, guid: e0915b8cc792cbe4aa88d55403eba2bd, type: 3}
-      propertyPath: sounds.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4858828c79bb4464995b063873c21f87, type: 3}
-    - target: {fileID: 5888968241238160559, guid: e0915b8cc792cbe4aa88d55403eba2bd, type: 3}
-      propertyPath: sounds.Array.data[1].loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5888968241238160559, guid: e0915b8cc792cbe4aa88d55403eba2bd, type: 3}
-      propertyPath: sounds.Array.data[1].name
-      value: ShootSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 5888968241238160559, guid: e0915b8cc792cbe4aa88d55403eba2bd, type: 3}
-      propertyPath: sounds.Array.data[1].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5888968241238160559, guid: e0915b8cc792cbe4aa88d55403eba2bd, type: 3}
-      propertyPath: sounds.Array.data[1].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5888968241238160559, guid: e0915b8cc792cbe4aa88d55403eba2bd, type: 3}
-      propertyPath: sounds.Array.data[0].mixGroup
-      value: 
-      objectReference: {fileID: 5404419610293491865, guid: 9a08c6e2860fc9048bc1f7c0f95c3c03, type: 2}
-    - target: {fileID: 5888968241238160559, guid: e0915b8cc792cbe4aa88d55403eba2bd, type: 3}
-      propertyPath: sounds.Array.data[1].mixGroup
-      value: 
-      objectReference: {fileID: 3767360435472145050, guid: 9a08c6e2860fc9048bc1f7c0f95c3c03, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0915b8cc792cbe4aa88d55403eba2bd, type: 3}

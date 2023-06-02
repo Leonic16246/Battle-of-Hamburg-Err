@@ -47,7 +47,22 @@ MonoBehaviour:
   sounds:
   - name: GameBGM
     clip: {fileID: 8300000, guid: db54da09569d5d745aefba413786f31e, type: 3}
+    mixGroup: {fileID: 5404419610293491865, guid: 9a08c6e2860fc9048bc1f7c0f95c3c03, type: 2}
     volume: 1
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: ShootSFX
+    clip: {fileID: 8300000, guid: 4858828c79bb4464995b063873c21f87, type: 3}
+    mixGroup: {fileID: 3767360435472145050, guid: 9a08c6e2860fc9048bc1f7c0f95c3c03, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: NewBGM
+    clip: {fileID: 8300000, guid: 42a80cf8728aa1540b031ccc6c35c032, type: 3}
+    mixGroup: {fileID: 5404419610293491865, guid: 9a08c6e2860fc9048bc1f7c0f95c3c03, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
