@@ -29,7 +29,7 @@ public class EnemyMovement : MonoBehaviour
             GetNextWaypoint();
         }
 
-        enemy.speed = enemy.startSpeed; 
+        //enemy.speed = Enemy.startSpeed; 
     }
 
     void GetNextWaypoint()
@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
             // Destroy enemy and reduce player health by 5% when enemy has reached the end.
             WaveSpawner.EnemiesAlive--; 
             Destroy(gameObject);
-            PlayerStats.instance.ReducePlayerHealth(0.05f);
+            PlayerStats.instance.ReducePlayerHealth(enemy.damage);
         }
         
     }

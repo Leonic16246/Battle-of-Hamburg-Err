@@ -14,9 +14,11 @@ public class SettingsMenu : MonoBehaviour
     public TextMeshProUGUI masterText, musicText, sfxText;
 
     // for resolutions
-
     Resolution[] resolutions;
     public TMPro.TMP_Dropdown resolutionDropdown;
+
+    [SerializeField]
+    Difficulty difficulty;
 
     void Start()
     {
@@ -124,4 +126,9 @@ public class SettingsMenu : MonoBehaviour
         Screen.SetResolution(res.width, res.height, Screen.fullScreen);
     }
 
+    // Change the health and speed multipliers when difficulty is changed.
+    public void SetDifficulty(int difficultyValue)
+    {
+        difficulty.Set(difficultyValue);
+    }
 }
