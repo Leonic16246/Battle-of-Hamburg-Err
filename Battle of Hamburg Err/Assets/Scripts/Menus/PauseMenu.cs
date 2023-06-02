@@ -66,7 +66,7 @@ public class PauseMenu : MonoBehaviour
     public void QuitButton()
     {
         Debug.Log("quit");
-        
+        Destroy(GameObject.FindGameObjectWithTag("MapManager")); // destroy mapmanger so the theme buttons can reference the mapmanger instance created in the new mainmenu scene
         SceneManager.LoadScene(0);
     }
 

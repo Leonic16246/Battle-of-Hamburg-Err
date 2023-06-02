@@ -22,7 +22,8 @@ public class ThemeSelecter : MonoBehaviour
     }
 
     public GameObject Amap;
-    public GameObject defaultMap;
+    public GameObject Jmap;
+    public GameObject Dmap;
     GameObject mapToLoad;
 
     string sceneName = "GameScene";
@@ -40,9 +41,9 @@ public class ThemeSelecter : MonoBehaviour
 
     }
 
-    public void SelectDefault()
+    public void SelectJapan()
     {   
-        mapToLoad = defaultMap;
+        mapToLoad = Jmap;
         SceneManager.LoadScene(1);
         if (SceneManager.GetActiveScene().buildIndex != 1)
         {
@@ -50,6 +51,18 @@ public class ThemeSelecter : MonoBehaviour
         }
  
         
+    }
+
+    public void SelectDesert()
+    {
+        mapToLoad = Dmap;
+        SceneManager.LoadScene(1);
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            StartCoroutine("waitForSceneLoad", 1);
+        }
+
+
     }
     IEnumerator waitForSceneLoad(int sceneNumber)
     {

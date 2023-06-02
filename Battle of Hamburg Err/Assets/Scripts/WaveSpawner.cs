@@ -9,24 +9,28 @@ public class WaveSpawner : MonoBehaviour
     public Transform spawnPoint;
 
     public float waveInterval = 5;
-    private float waveStartTimer = 2;
+    private float waveStartTimer = 5;
 
     public TextMeshProUGUI waveCountdownText, waveCountText;
     private int waveNumber = 0;
-    ThemeSelecter themes;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(passiveMe(1));
+        Time.timeScale = 1;
+        StartCoroutine(passiveMe(3));
+        EnemiesAlive = 0; // reset to 0 incase there were still enemies alive from a previous gamescene, otherwise update will keep returning
+        
     }
+
     
  
-    IEnumerator passiveMe(int secs)
+    IEnumerator passiveMe(int secs) // find starting waypoint
  {
      yield return new WaitForSeconds(secs);
      spawnPoint = GameObject.Find("Waypoint (-1)").transform;
  }
+ 
     // Update is called once per frame
     void Update()
     {
@@ -35,7 +39,7 @@ public class WaveSpawner : MonoBehaviour
         {
             return; 
         }
-
+        
         if (waveStartTimer <= 0)
         {
             StartCoroutine(WaveStart());
