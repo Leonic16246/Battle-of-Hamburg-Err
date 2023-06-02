@@ -2464,7 +2464,7 @@ GameObject:
   - component: {fileID: 645987316}
   - component: {fileID: 645987315}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: DifficultyDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2540,18 +2540,30 @@ MonoBehaviour:
   m_Placeholder: {fileID: 0}
   m_ItemText: {fileID: 929006086}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 1
   m_Options:
     m_Options:
     - m_Text: Easy
       m_Image: {fileID: 0}
-    - m_Text: Medium
+    - m_Text: Normal
       m_Image: {fileID: 0}
     - m_Text: Hard
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1494508064}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: SetDifficulty
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &645987316
 MonoBehaviour:
@@ -7672,6 +7684,7 @@ MonoBehaviour:
   musicText: {fileID: 1927595465}
   sfxText: {fileID: 1142257943}
   resolutionDropdown: {fileID: 1668311076}
+  difficulty: {fileID: 1561264994}
 --- !u!1 &1561264989
 GameObject:
   m_ObjectHideFlags: 0
@@ -7684,6 +7697,7 @@ GameObject:
   - component: {fileID: 1561264990}
   - component: {fileID: 1561264992}
   - component: {fileID: 1561264993}
+  - component: {fileID: 1561264994}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -7814,6 +7828,21 @@ MonoBehaviour:
   startMoney: 1000
   levelUpText: {fileID: 1179880330}
   healthBar: {fileID: 486497145913620112}
+--- !u!114 &1561264994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561264989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b1e832c63603046bb498ed11c3f0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMultiplier: 0
+  speedMultiplier: 0
+  dmgMultiplier: 1
 --- !u!1 &1588718058
 GameObject:
   m_ObjectHideFlags: 0
