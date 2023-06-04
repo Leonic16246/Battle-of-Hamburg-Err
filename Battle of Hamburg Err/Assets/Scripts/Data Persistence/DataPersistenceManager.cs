@@ -12,7 +12,7 @@ public class DataPersistenceManager : MonoBehaviour
     GameData gameData;
     List<IDataPersistence> dataPersistenceObjects;
     FileDataHandler dataHandler;
-
+    public bool shouldLoad = false;
 
     public static DataPersistenceManager instance { get; private set; }
 
@@ -50,7 +50,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void OnSceneUnloaded(Scene scene)
     {
-        SaveGame();
+        //SaveGame();
     }
 
     public void NewGame()
@@ -70,23 +70,31 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
-        this.gameData = dataHandler.Load(); // load data from file using datahandler
-
+        
+        Debug.Log("loading");
         if (this.gameData == null) // if no data is found, load a new game
         {
-            Debug.Log("No data, loading defaults");
+            Debug.Log("No data found");
+        }
+
+        if (shouldLoad)
+        {
+            this.gameData = dataHandler.Load(); // load data from file using datahandler
+        } else
+        {
             NewGame();
         }
 
         foreach (IDataPersistence dataPersistenceObject in dataPersistenceObjects)
         {
             dataPersistenceObject.LoadData(gameData);
+            
         }
     }
 
     void OnApplicationQuit()
     {
-        SaveGame();
+        //SaveGame();
     }
 
     List<IDataPersistence> FindAllDataPersistenceObjects()
@@ -96,4 +104,8 @@ public class DataPersistenceManager : MonoBehaviour
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
 
+    public bool HasGameData()
+    {
+        return gameData != null;
+    }
 }

@@ -5,7 +5,7 @@ using System.Collections;
 
 public class PlayerStats : MonoBehaviour, IDataPersistence
 {
-    private int startingMoney = 1000;
+    public int startingMoney = 1000;
     public static int Money;
     public static int playerXP, playerLevel;
     private static int xpUntilNextLevel;
@@ -31,7 +31,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        data.Money = startingMoney;
+        data.Money = this.startingMoney;
         data.playerXP = playerXP;
         data.playerLevel = playerLevel;
         data.xpUntilNextLevel = xpUntilNextLevel;
@@ -39,10 +39,14 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        Money = data.Money;
+        Money = this.startingMoney;
+        Debug.Log(Money);
         playerXP = data.playerXP;
+        Debug.Log(playerXP);
         playerLevel = data.playerLevel;
+        Debug.Log(playerLevel);
         xpUntilNextLevel = data.xpUntilNextLevel;
+        Debug.Log(xpUntilNextLevel);
     }
 
     // Called when enemy reaches the end of their path, reducing the player's health.

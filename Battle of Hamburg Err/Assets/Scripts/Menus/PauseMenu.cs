@@ -46,11 +46,13 @@ public class PauseMenu : MonoBehaviour
     public void SaveButton()
     {
         Debug.Log("save");
+        DataPersistenceManager.instance.SaveGame();
     }
 
     public void LoadButton()
     {
         Debug.Log("load");
+        DataPersistenceManager.instance.LoadGame();
     }
 
 

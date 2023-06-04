@@ -12,7 +12,7 @@ public class WaveSpawner : MonoBehaviour
     private float waveStartTimer = 5;
 
     public TextMeshProUGUI waveCountdownText, waveCountText;
-    private int waveNumber = 0;
+    private int waveNumber = 1;
 
     // Start is called before the first frame update
     void Start()
