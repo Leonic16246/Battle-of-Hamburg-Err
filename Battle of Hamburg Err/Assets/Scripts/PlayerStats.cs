@@ -5,6 +5,7 @@ using System.Collections;
 
 public class PlayerStats : MonoBehaviour, IDataPersistence
 {
+    private int startingMoney = 1000;
     public static int Money;
     public static int playerXP, playerLevel;
     private static int xpUntilNextLevel;
@@ -30,7 +31,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        data.Money = Money;
+        data.Money = startingMoney;
         data.playerXP = playerXP;
         data.playerLevel = playerLevel;
         data.xpUntilNextLevel = xpUntilNextLevel;

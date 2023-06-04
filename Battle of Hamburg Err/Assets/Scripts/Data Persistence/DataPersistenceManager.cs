@@ -26,7 +26,7 @@ public class DataPersistenceManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         DontDestroyOnLoad(gameObject);
     }
 
@@ -44,19 +44,13 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        LoadGame();
     }
 
     public void OnSceneUnloaded(Scene scene)
     {
-
-    }
-
-    void Start()
-    {
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        LoadGame();
+        SaveGame();
     }
 
     public void NewGame()
