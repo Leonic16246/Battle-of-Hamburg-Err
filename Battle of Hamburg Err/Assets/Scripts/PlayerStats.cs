@@ -3,11 +3,9 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour, IDataPersistence
 {
     public static int Money;
-    public int startMoney = 1000;
-
     public static int playerXP, playerLevel;
     private static int xpUntilNextLevel;
     public TextMeshProUGUI levelUpText;
@@ -30,13 +28,20 @@ public class PlayerStats : MonoBehaviour
         instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void SaveData(ref GameData data)
     {
-        Money = startMoney;
-        playerXP = 0;
-        playerLevel = 1;
-        xpUntilNextLevel = 750;
+        data.Money = Money;
+        data.playerXP = playerXP;
+        data.playerLevel = playerLevel;
+        data.xpUntilNextLevel = xpUntilNextLevel;
+    }
+
+    public void LoadData(GameData data)
+    {
+        Money = data.Money;
+        playerXP = data.playerXP;
+        playerLevel = data.playerLevel;
+        xpUntilNextLevel = data.xpUntilNextLevel;
     }
 
     // Called when enemy reaches the end of their path, reducing the player's health.
