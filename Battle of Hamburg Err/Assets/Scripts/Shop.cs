@@ -14,6 +14,24 @@ public class Shop : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
+    void Update()
+    {
+        if (PauseMenu.gameIsPaused == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                SelectStandardTurret();
+            } else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                SelectAnotherTurret();
+            } else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                SelectLaserBeamer();
+            }
+        } 
+
+    }
+
     public void SelectStandardTurret()
     {
         Debug.Log("turret purchased");
@@ -22,7 +40,7 @@ public class Shop : MonoBehaviour
 
     public void SelectAnotherTurret()
     {
-        Debug.Log("another turret purchased");
+        Debug.Log("missile turret purchased");
         buildManager.SelectTurretToBuild(anotherTurret);
     }
 

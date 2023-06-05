@@ -3,12 +3,13 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour, IDataPersistence
 {
+    public int startingMoney = 1000;
     public static int Money;
-    public int startMoney = 1000;
 
     public static int playerXP, playerLevel, skillPoints = 0;
+
     private static int xpUntilNextLevel;
     public TextMeshProUGUI levelUpText;
 
@@ -30,13 +31,24 @@ public class PlayerStats : MonoBehaviour
         instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void SaveData(ref GameData data)
     {
-        Money = startMoney;
-        playerXP = 0;
-        playerLevel = 1;
-        xpUntilNextLevel = 750;
+        data.Money = this.startingMoney;
+        data.playerXP = playerXP;
+        data.playerLevel = playerLevel;
+        data.xpUntilNextLevel = xpUntilNextLevel;
+    }
+
+    public void LoadData(GameData data)
+    {
+        Money = this.startingMoney;
+        Debug.Log(Money);
+        playerXP = data.playerXP;
+        Debug.Log(playerXP);
+        playerLevel = data.playerLevel;
+        Debug.Log(playerLevel);
+        xpUntilNextLevel = data.xpUntilNextLevel;
+        Debug.Log(xpUntilNextLevel);
         
         if (PlayerPrefs.HasKey("skill points"))
         {

@@ -58,7 +58,7 @@ public class BuildManager : MonoBehaviour
     }
 
 
-    public void SelectNode (Node node)
+    public void SelectNode(Node node)
     {
         if (selectedNode == node)
         {
@@ -84,7 +84,7 @@ public class BuildManager : MonoBehaviour
         DeselectNode(); 
     }
 
-    public TurretBlueprint GetTurretToBuild()
+    public TurretBlueprint GetTurretToBuild() // calls a turret from the shop
     {
         return turretToBuild; 
     }
