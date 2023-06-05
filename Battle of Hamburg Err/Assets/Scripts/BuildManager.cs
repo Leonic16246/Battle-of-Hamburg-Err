@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
-
     public static BuildManager instance;
 
     void Awake()
@@ -25,7 +22,17 @@ public class BuildManager : MonoBehaviour
     private TurretBlueprint turretToBuild;
     private Node selectedNode; 
 
-    public NodeUI nodeUI; 
+    public NodeUI nodeUI;
+
+    // Apply the permanent upgrades to the turret prefabs.
+    private void Start()
+    {
+        if (PlayerPrefs.HasKey("test1") && PlayerPrefs.GetInt("test1") == 1)
+        {
+            Debug.Log("Test: "+ PlayerPrefs.GetInt("test1"));
+            standardTurretPrefab.GetComponent<Turret>().fireRate = 5;
+        }
+    }
 
     public bool CanBuild()
     {
