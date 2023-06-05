@@ -85,4 +85,18 @@ public class UpgradeTree : MonoBehaviour
             Debug.Log("Not enough skill points.");
         }
     }
+
+    // Reset all upgrades in this upgrade tree.
+    public void Reset()
+    {
+        maxedOutText.gameObject.SetActive(false);
+
+        upgradeButton1.GetComponent<Button>().interactable = true;
+        upgradeButton2.GetComponent<Button>().interactable = false;
+        upgradeButton3.GetComponent<Button>().interactable = false;
+
+        PlayerPrefs.SetInt(turretName, 0);
+        upgradeLvl = 0;
+        nextUpgradeCost = 1;
+    }
 }

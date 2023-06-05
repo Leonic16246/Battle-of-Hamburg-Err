@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
     public static int Money;
     public int startMoney = 1000;
 
-    public static int playerXP, playerLevel, skillPoints;
+    public static int playerXP, playerLevel, skillPoints = 0;
     private static int xpUntilNextLevel;
     public TextMeshProUGUI levelUpText;
 
@@ -37,7 +37,11 @@ public class PlayerStats : MonoBehaviour
         playerXP = 0;
         playerLevel = 1;
         xpUntilNextLevel = 750;
-        skillPoints = 0;
+        
+        if (PlayerPrefs.HasKey("skill points"))
+        {
+            skillPoints = PlayerPrefs.GetInt("skill points");
+        }
     }
 
     // Called when enemy reaches the end of their path, reducing the player's health.

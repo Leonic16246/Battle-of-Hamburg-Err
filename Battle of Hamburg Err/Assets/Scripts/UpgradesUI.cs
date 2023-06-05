@@ -5,6 +5,12 @@ public class UpgradesUI : MonoBehaviour
 {
     int skillPoints = 0;
     public TextMeshProUGUI skillPointsText;
+    public GameObject resetPrompt;
+
+    [Header("Upgrade Trees")]
+    public UpgradeTree burgerTurretTree;
+    public UpgradeTree sushiLauncherTree;
+    public UpgradeTree donutLaserTree;
     
     // Set the # of skill points from last game.
     void Start()
@@ -27,5 +33,25 @@ public class UpgradesUI : MonoBehaviour
         this.skillPoints = skillPoints;
         skillPointsText.text = "Skill points: "+ skillPoints;
         PlayerPrefs.SetInt("skill points", skillPoints);
+    }
+
+    public void PromptReset()
+    {
+        resetPrompt.SetActive(true);
+    }
+
+    // Reset all upgrade trees.
+    public void ConfirmReset()
+    {
+        burgerTurretTree.Reset();
+        sushiLauncherTree.Reset();
+        donutLaserTree.Reset();
+
+        resetPrompt.SetActive(false);
+    }
+
+    public void CancelReset()
+    {
+        resetPrompt.SetActive(false);
     }
 }
