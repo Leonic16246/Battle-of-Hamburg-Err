@@ -56,6 +56,7 @@ public class DataPersistenceManager : MonoBehaviour
     public void NewGame()
     {
         this.gameData = new GameData();
+        Debug.Log("Setting gamedata to new");
     }
 
     public void SaveGame()
@@ -80,9 +81,7 @@ public class DataPersistenceManager : MonoBehaviour
         if (shouldLoad)
         {
             this.gameData = dataHandler.Load(); // load data from file using datahandler
-        } else
-        {
-            NewGame();
+            Debug.Log("loading from file");
         }
 
         foreach (IDataPersistence dataPersistenceObject in dataPersistenceObjects)
@@ -107,5 +106,10 @@ public class DataPersistenceManager : MonoBehaviour
     public bool HasGameData()
     {
         return gameData != null;
+    }
+
+    public void resetGameData()
+    {
+        gameData = null;
     }
 }

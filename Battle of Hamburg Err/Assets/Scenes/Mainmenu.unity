@@ -3285,6 +3285,7 @@ MonoBehaviour:
   themeMenuUI: {fileID: 375846566}
   userLevelText: {fileID: 1127437649}
   xpBar: {fileID: 175930354}
+  loadButton: {fileID: 652892187}
 --- !u!1001 &4207574297309846024
 PrefabInstance:
   m_ObjectHideFlags: 0

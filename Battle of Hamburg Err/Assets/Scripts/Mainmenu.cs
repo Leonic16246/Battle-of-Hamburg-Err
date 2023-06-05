@@ -9,7 +9,6 @@ public class Mainmenu : MonoBehaviour
     public TextMeshProUGUI userLevelText;
     public Image xpBar;
     public Button loadButton;
-
     public static Mainmenu instance;
 
     void Awake()
@@ -48,6 +47,7 @@ public class Mainmenu : MonoBehaviour
         mainMenuUI.SetActive(false);
         themeMenuUI.SetActive(true);
         DataPersistenceManager.instance.shouldLoad = false;
+        DataPersistenceManager.instance.NewGame();
     }
 
     public void Load()
@@ -55,6 +55,7 @@ public class Mainmenu : MonoBehaviour
         mainMenuUI.SetActive(false);
         themeMenuUI.SetActive(true);
         DataPersistenceManager.instance.shouldLoad = true;
+        Debug.Log("shouldload is true");
     }
 
     public void Back()
