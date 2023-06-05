@@ -46,11 +46,14 @@ public class PauseMenu : MonoBehaviour
     public void SaveButton()
     {
         Debug.Log("save");
+        DataPersistenceManager.instance.SaveGame();
+        DataPersistenceManager.instance.shouldLoad = true;
     }
 
     public void LoadButton()
     {
         Debug.Log("load");
+        DataPersistenceManager.instance.LoadGame();
     }
 
 
@@ -67,6 +70,7 @@ public class PauseMenu : MonoBehaviour
     {
         //gameIsPaused = false;
         Debug.Log("quit");
+        DataPersistenceManager.instance.resetGameData();
         Destroy(GameObject.FindGameObjectWithTag("MapManager")); // destroy mapmanger so the theme buttons can reference the mapmanger instance created in the new mainmenu scene
         SceneManager.LoadScene(0);
     }

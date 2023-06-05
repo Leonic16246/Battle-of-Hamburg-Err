@@ -32,7 +32,6 @@ public class ThemeSelecter : MonoBehaviour
     public void SelectAmerica()
     {
         mapToLoad = Amap;
-        SceneManager.LoadScene(1);
         if (SceneManager.GetActiveScene().buildIndex != 1)
         {
             StartCoroutine("waitForSceneLoad", 1);
@@ -44,7 +43,6 @@ public class ThemeSelecter : MonoBehaviour
     public void SelectJapan()
     {   
         mapToLoad = Jmap;
-        SceneManager.LoadScene(1);
         if (SceneManager.GetActiveScene().buildIndex != 1)
         {
             StartCoroutine("waitForSceneLoad", 1);
@@ -56,7 +54,6 @@ public class ThemeSelecter : MonoBehaviour
     public void SelectDesert()
     {
         mapToLoad = Dmap;
-        SceneManager.LoadScene(1);
         if (SceneManager.GetActiveScene().buildIndex != 1)
         {
             StartCoroutine("waitForSceneLoad", 1);
@@ -77,9 +74,7 @@ public class ThemeSelecter : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == sceneNumber)
         {
-            Debug.Log(SceneManager.GetActiveScene().buildIndex);
             Instantiate(mapToLoad, mapToLoad.transform.position, mapToLoad.transform.rotation);
-            
         }
 
     }

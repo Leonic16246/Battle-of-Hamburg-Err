@@ -8,7 +8,7 @@ public class Mainmenu : MonoBehaviour
     public GameObject mainMenuUI, themeMenuUI;
     public TextMeshProUGUI userLevelText;
     public Image xpBar;
-
+    public Button loadButton;
     public static Mainmenu instance;
 
     void Awake()
@@ -32,16 +32,30 @@ public class Mainmenu : MonoBehaviour
         {
             SetUserXP(PlayerPrefs.GetInt("level"), PlayerPrefs.GetFloat("xp"));
         }
+        if (!DataPersistenceManager.instance.HasGameData())
+        {
+            loadButton.interactable = false;
+        }
     }
 
+    public void Play()
+    {
+        SceneManager.LoadScene(1);
+    }
     public void New()
     {
         mainMenuUI.SetActive(false);
         themeMenuUI.SetActive(true);
+        DataPersistenceManager.instance.shouldLoad = false;
+        DataPersistenceManager.instance.NewGame();
     }
-    public void Play()
+
+    public void Load()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        mainMenuUI.SetActive(false);
+        themeMenuUI.SetActive(true);
+        DataPersistenceManager.instance.shouldLoad = true;
+        Debug.Log("shouldload is true");
     }
 
     public void Back()
