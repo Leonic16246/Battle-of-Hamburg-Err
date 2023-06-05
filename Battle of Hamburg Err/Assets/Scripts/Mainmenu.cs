@@ -5,7 +5,7 @@ using TMPro;
 
 public class Mainmenu : MonoBehaviour
 {
-    public GameObject mainMenuUI, themeMenuUI;
+    public GameObject mainMenuUI, themeMenuUI, shopUI;
     public TextMeshProUGUI userLevelText;
     public Image xpBar;
     public Button loadButton;
@@ -58,9 +58,22 @@ public class Mainmenu : MonoBehaviour
         Debug.Log("shouldload is true");
     }
 
+    public void Shop()
+    {
+        mainMenuUI.SetActive(false);
+        shopUI.SetActive(true);
+    }
+
     public void Back()
     {
-        themeMenuUI.SetActive(false);
+        if (themeMenuUI.activeInHierarchy)
+        {
+            themeMenuUI.SetActive(false);
+        }
+        else if (shopUI.activeInHierarchy)
+        {
+            shopUI.SetActive(false);
+        }
         mainMenuUI.SetActive(true);
     }
 

@@ -7,7 +7,9 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
 {
     public int startingMoney = 1000;
     public static int Money;
-    public static int playerXP, playerLevel;
+
+    public static int playerXP, playerLevel, skillPoints = 0;
+
     private static int xpUntilNextLevel;
     public TextMeshProUGUI levelUpText;
 
@@ -47,6 +49,11 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
         Debug.Log(playerLevel);
         xpUntilNextLevel = data.xpUntilNextLevel;
         Debug.Log(xpUntilNextLevel);
+        
+        if (PlayerPrefs.HasKey("skill points"))
+        {
+            skillPoints = PlayerPrefs.GetInt("skill points");
+        }
     }
 
     // Called when enemy reaches the end of their path, reducing the player's health.
@@ -67,11 +74,25 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
         playerXP += amount;
         
         // Increment player level when playerXP reaches or exceeds a certain amount.
+        // Add skill points based on player's level.
         Debug.Log("XP: "+playerXP);
         if (playerXP >= xpUntilNextLevel)
         {
             playerLevel++;
             playerXP = 0;
+            if (playerLevel < 5)
+            {
+                skillPoints++;
+            }
+            else if (5 <= playerLevel && playerLevel < 10)
+            {
+                skillPoints += 2;
+            }
+            else
+            {
+                skillPoints += 3;
+            }
+            Debug.Log("Skill points: "+skillPoints);
             StartCoroutine(sendNotification(5));
 
             xpUntilNextLevel = Mathf.RoundToInt((float)1.2 * xpUntilNextLevel);
@@ -79,6 +100,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
 
         // Keep the XP values to use in the main menu scene.
         PlayerPrefs.SetInt("level", playerLevel);
+        PlayerPrefs.SetInt("skill points", skillPoints);
         PlayerPrefs.SetFloat("xp", GetXPBarFill());
     }
 
