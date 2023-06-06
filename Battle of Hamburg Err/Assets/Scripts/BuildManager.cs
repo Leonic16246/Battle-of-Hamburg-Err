@@ -145,7 +145,7 @@ public class BuildManager : MonoBehaviour
         Turret donutLaser = LaserBeamerPrefab.GetComponent<Turret>();
         if (level >= 1)
         {
-            donutLaser.slowAmount = 0.25f;
+            donutLaser.slowAmount = 0.7f;
             if (level >= 2)
             {
                 donutLaser.damageOverTime = 55;
