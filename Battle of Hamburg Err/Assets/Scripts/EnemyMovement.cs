@@ -27,8 +27,8 @@ public class EnemyMovement : MonoBehaviour
         // Move the enemy towards the target position at a speed determined by enemy.speed
         transform.Translate(direction.normalized * enemy.speed * Time.deltaTime, Space.World);
 
-        // Check if the enemy has reached the target position with a small tolerance of 0.1 units
-        if (Vector3.Distance(transform.position, target.position) < 0.1)
+        // Check if the enemy has reached the target position with a small tolerance of 0.2 units
+        if (Vector3.Distance(transform.position, target.position) < 0.2)
         {
             // If the enemy has reached the target position, get the next waypoint
             GetNextWaypoint();
