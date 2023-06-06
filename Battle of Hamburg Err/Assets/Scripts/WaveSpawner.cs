@@ -46,9 +46,13 @@ public class WaveSpawner : MonoBehaviour
         {
             if (waveNumber == 31)
             {
+                // End and save the game after boss round
                 Time.timeScale = 0;
                 gameOverScreen.SetActive(true);
                 gameOverScreen.GetComponentInChildren<TextMeshProUGUI>().text = "Map completed";
+
+                DataPersistenceManager.instance.SaveGame();
+                DataPersistenceManager.instance.shouldLoad = true;
             }
             else
             {
