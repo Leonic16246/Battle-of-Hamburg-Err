@@ -59,7 +59,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SettingsButton()
     {
-        Debug.Log("option");
+        Debug.Log("settings");
         currentMenuUI = settingsMenuUI;
         pauseMenuUI.SetActive(false);
         settingsMenuUI.SetActive(true);
