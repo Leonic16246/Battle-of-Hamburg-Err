@@ -83,6 +83,11 @@ public class Mainmenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Walkthrough()
+    {
+        Application.OpenURL("https://www.youtube.com/watch?v=LTXE_3PzqHc");
+    }
+
     public void SetUserXP(int playerLevel, float xpBarFill)
     {
         userLevelText.text = "User Level: "+playerLevel;
