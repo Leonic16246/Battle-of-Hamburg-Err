@@ -20,6 +20,14 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField]
     Difficulty difficulty;
 
+
+    /** 
+The Start() method is called when the script is first enabled or when the game object it is attached to is instantiated.
+This method is responsible for initializing the resolution dropdown menu with available resolution options.
+It retrieves the available screen resolutions using Screen.resolutions and populates the dropdown menu with the options.
+It also sets the default value of the dropdown to the current screen resolution and refreshes the shown value.
+*/
+
     void Start()
     {
         resolutions = Screen.resolutions;
@@ -68,6 +76,12 @@ public class SettingsMenu : MonoBehaviour
             masterText.color = Color.black;
         }
     }
+
+    /**
+ * Sets the music volume to the specified value in decibels.
+ * 
+ * @param volume The volume level for the music. Value ranges from 0 to 1.
+ */
 
     public void SetMusic(float volume)
     {
@@ -119,6 +133,12 @@ public class SettingsMenu : MonoBehaviour
     {
         Screen.fullScreen = isFullScreen;
     }
+
+    /**
+ * Sets the screen resolution to the specified index in the resolutions array, using pixel measurements.
+ * 
+ * @param resIndex The index of the desired resolution in the resolutions array.
+ */
 
     public void SetResolution(int resIndex)
     {
