@@ -14,6 +14,8 @@ public class WaveSpawner : MonoBehaviour
     public TextMeshProUGUI waveCountdownText, waveCountText;
     private int waveNumber = 1;
 
+    public GameObject gameOverScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,10 +44,18 @@ public class WaveSpawner : MonoBehaviour
         
         if (waveStartTimer <= 0)
         {
-            StartCoroutine(WaveStart());
-            waveStartTimer = waveInterval;
-            return;
-
+            if (waveNumber == 31)
+            {
+                Time.timeScale = 0;
+                gameOverScreen.SetActive(true);
+                gameOverScreen.GetComponentInChildren<TextMeshProUGUI>().text = "Map completed";
+            }
+            else
+            {
+                StartCoroutine(WaveStart());
+                waveStartTimer = waveInterval;
+                return;
+            }
         }
         waveStartTimer -= Time.deltaTime;
 

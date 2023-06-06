@@ -65,6 +65,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
         {
             Time.timeScale = 0;
             gameOverScreen.SetActive(true);
+            gameOverScreen.GetComponentInChildren<TextMeshProUGUI>().text = "Game over";
         }
     }
 
