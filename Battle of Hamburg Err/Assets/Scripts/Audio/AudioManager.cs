@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
 
     public static AudioManager instance;
+    public static float masterFloat = 0, musicFloat = 0, sfxFloat = 0;
+    public static bool masterMute = false, musicMute = false, sfxMute = false;
 
     void Awake()
     {

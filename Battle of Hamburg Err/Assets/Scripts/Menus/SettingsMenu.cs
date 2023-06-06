@@ -9,41 +9,86 @@ public class SettingsMenu : MonoBehaviour
 
     // for audio
     public AudioMixer audioMixer;
-    public bool masterMute = false, musicMute = false, sfxMute = false;
-    public float masterFloat = 0, musicFloat = 0, sfxFloat = 0;
+    public bool masterMute, musicMute, sfxMute;
+    public static float masterFloat, musicFloat, sfxFloat;
     public TextMeshProUGUI masterText, musicText, sfxText;
 
     // for resolutions
-    Resolution[] resolutions;
+    static Resolution[] resolutions;
+    static bool searchedResolutions = false;
     public TMPro.TMP_Dropdown resolutionDropdown;
+    public Slider masterSlider, musicSlider, sfxSlider;
+    static int currentResIndex = 0;
+    public Toggle fullToggle;
+    static bool isFull = true;
+
+    // convert array of resolution types to a list of strings
+    static List<string> options = new List<string>();
 
     [SerializeField]
     Difficulty difficulty;
 
     void Start()
     {
-        resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
 
-        // convert array of resolution types to a list of strings
-        List<string> options = new List<string>();
-
-        int currentResIndex = 0;
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            string option = resolutions[i].width + "x" + resolutions[i].height + "@" + resolutions[i].refreshRate + "hz";
-            options.Add(option);
-
-            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            if (!searchedResolutions)
             {
-                currentResIndex = i;
+                resolutions = Screen.resolutions;
+
+            
+
+            
+            for (int i = 0; i < resolutions.Length; i++)
+            {
+                string option = resolutions[i].width + "x" + resolutions[i].height + "@" + resolutions[i].refreshRate + "hz";
+                options.Add(option);
+
+                if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+                {
+                    currentResIndex = i;
+                }
             }
+            searchedResolutions = true;
         }
 
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResIndex;
         resolutionDropdown.RefreshShownValue();
+
+        fullToggle.isOn = isFull;
+
+        NewScene();
+
+    }
+
+    public void NewScene()
+    {
+        masterFloat = AudioManager.masterFloat;
+        musicFloat =  AudioManager.musicFloat;
+        sfxFloat =  AudioManager.sfxFloat;
+
+        masterMute =  AudioManager.masterMute;
+        musicMute =  AudioManager.musicMute;
+        sfxMute =  AudioManager.sfxMute;
+
+        masterSlider.value = masterFloat;
+        musicSlider.value = musicFloat;
+        sfxSlider.value = sfxFloat;
+
+        if (masterMute)
+        {
+            masterText.color = Color.red;
+        }
+        if (musicMute)
+        {
+            musicText.color = Color.red;
+        }
+        if (sfxMute)
+        {
+            sfxText.color = Color.red;
+        }
     }
 
     public void SetMaster(float volume)
@@ -53,6 +98,7 @@ public class SettingsMenu : MonoBehaviour
         {
             audioMixer.SetFloat("Master", volume);
         }
+        AudioManager.masterFloat = masterFloat;
     }
     public void MuteMaster()
     {
@@ -67,6 +113,7 @@ public class SettingsMenu : MonoBehaviour
             audioMixer.SetFloat("Master", masterFloat);
             masterText.color = Color.black;
         }
+        AudioManager.masterMute = masterMute;
     }
 
     public void SetMusic(float volume)
@@ -76,6 +123,7 @@ public class SettingsMenu : MonoBehaviour
         {
             audioMixer.SetFloat("Music", volume);
         }
+        AudioManager.musicFloat = musicFloat;
     }
     public void MuteMusic()
     {
@@ -90,6 +138,7 @@ public class SettingsMenu : MonoBehaviour
             audioMixer.SetFloat("Music", musicFloat);
             musicText.color = Color.black;
         }
+        AudioManager.musicMute = musicMute;
     }
 
     public void SetSFX(float volume)
@@ -99,6 +148,7 @@ public class SettingsMenu : MonoBehaviour
         {
             audioMixer.SetFloat("SFX", volume);
         }
+        AudioManager.sfxFloat = sfxFloat;
     }
     public void MuteSFX()
     {
@@ -113,17 +163,20 @@ public class SettingsMenu : MonoBehaviour
             audioMixer.SetFloat("SFX", sfxFloat);
             sfxText.color = Color.black;
         }
+        AudioManager.sfxMute = sfxMute;
     }
 
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+        isFull = isFullScreen;
     }
 
     public void SetResolution(int resIndex)
     {
         Resolution res = resolutions[resIndex];
         Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+        currentResIndex = resIndex;
     }
 
     // Change the health and speed multipliers when difficulty is changed.
