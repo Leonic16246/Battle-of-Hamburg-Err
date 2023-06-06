@@ -5932,7 +5932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Easy
+  m_text: Normal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7813,13 +7813,14 @@ MonoBehaviour:
   masterMute: 0
   musicMute: 0
   sfxMute: 0
-  masterFloat: 0
-  musicFloat: 0
-  sfxFloat: 0
   masterText: {fileID: 668857380}
   musicText: {fileID: 1927595465}
   sfxText: {fileID: 1142257943}
   resolutionDropdown: {fileID: 1668311076}
+  masterSlider: {fileID: 826868690}
+  musicSlider: {fileID: 1069060388}
+  sfxSlider: {fileID: 12914915}
+  fullToggle: {fileID: 586260093}
   difficulty: {fileID: 1561264994}
 --- !u!1 &1502952134
 GameObject:
@@ -9234,7 +9235,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 45
+    m_FontSize: 42
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 3
