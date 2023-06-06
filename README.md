@@ -12,7 +12,7 @@ Hamburger Shooter: Native to the American sector of Hamburg, the Hamburger Shoot
 
 Sushi Launcher: From the Japanese sector of Hamburg, the Sushi Launcher utilizes a variety of sushi as explosive projectiles, dealing area of effect damage. Each sushi explosion causes a delectable shockwave that damages groups of invaders.
 
-Donut Laser: The pride of the arid Desert sector, the Donut Laser harnesses the energy within its sugary ring to emit a powerful laser beam, slowing down any human it hits with its sticky sweetness.
+Donut Laser: The pride of the arid Mexican sector, the Donut Laser harnesses the energy within its sugary ring to emit a powerful laser beam, slowing down any human it hits with its sticky sweetness.
 
 As the strategic commander of Hamburg's defenses, your mission is to strategically place and upgrade these food turrets to hold back the waves of hungry humans. Your ultimate goal is to seal the portal and protect Hamburg from this culinary catastrophe. 
 
