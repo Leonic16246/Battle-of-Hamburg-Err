@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float damage;
 
-    public static float startHealth = 100;
+    public static float startHealth;
     public float health;
     public int worth = 50;    
 
@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
         // speed = startSpeed;
         // health = startHealth;
         // damage = startDamage;
+        startHealth = health;
     }
 
     public void TakeDamage(float amount)
