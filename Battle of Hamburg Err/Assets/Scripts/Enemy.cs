@@ -23,9 +23,9 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        speed = startSpeed;
-        health = startHealth;
-        damage = startDamage;
+        // speed = startSpeed;
+        // health = startHealth;
+        // damage = startDamage;
     }
 
     public void TakeDamage(float amount)
@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
         health -= amount;
 
         healthBar.fillAmount = health / startHealth; 
+        Debug.Log(health);
 
         if (health <= 0 && !isDead)
         {
